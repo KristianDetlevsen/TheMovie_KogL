@@ -35,17 +35,19 @@ namespace TheMovies.Persistence
 
         public void AddMoviesFromList(string filename)
         {
-            StreamReader sr = new StreamReader(filename);
-            string line = sr.ReadLine();
-            while (line != null)
-            {
-                int pack = 0;
-                string[] words = line.Split(';');
-                AddMovie(new Movie(words[3], words[5], words[4]));
+            //Commented out for testing purposes
 
-                line = sr.ReadLine();
-            }
-            sr.Close();
+            //StreamReader sr = new StreamReader(filename);
+            //string line = sr.ReadLine();
+            //while (line != null)
+            //{
+            //    int pack = 0;
+            //    string[] words = line.Split(';');
+            //    AddMovie(new Movie(words[3], words[5], words[4]));
+
+            //    line = sr.ReadLine();
+            //}
+            //sr.Close();
         }
     }
 }
