@@ -35,10 +35,11 @@
             <TabItem Header="Forestillings Liste">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="343*"/>
+                        <ColumnDefinition Width="347*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="1">
+                    <Grid Grid.Column="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="5*"/>
@@ -59,9 +60,15 @@
                             <TextBox Margin="0,5,10,10"/>
                         </StackPanel>
                     </Grid>
-                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="0" Margin="10"/>
-                    
-                    
+                    <ListBox d:ItemsSource="{Binding Shows}" Grid.Column="1" Margin="6,10,10,10">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RoomNumber}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+
                 </Grid>
             </TabItem>
         </TabControl>
