@@ -11,5 +11,11 @@ namespace TheMovies.Model
     {
         public ObservableCollection<Show> Shows { get; set; }
 
+        public ProgramList()
+        {
+            Shows = new ObservableCollection<Show>();
+            Shows.Add(new Show(1, DateTime.Now, 120));
+        }
+
     }
 }

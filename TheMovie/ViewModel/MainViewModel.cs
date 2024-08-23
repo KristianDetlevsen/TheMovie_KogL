@@ -59,6 +59,8 @@ namespace TheMovies.ViewModel
 
         public ObservableCollection<Cinema> Cinemas { get; set; }
 
+        public ObservableCollection<Show> Shows { get; set; }
+
         public ICommand AddCmd { get; set; }
         public ICommand RemoveCmd { get; set; }
 
@@ -66,16 +68,18 @@ namespace TheMovies.ViewModel
         {
             MovieRepo = new MovieRepository();
             CinemaRepo = new CinemaRepository();
+            ProList = new ProgramList();
             MovieRepo.AddMoviesFromList("Uge33-TheMovies.csv");
             Movies = MovieRepo.Movies;
             Cinemas = CinemaRepo.Cinemas;
+            Shows = ProList.Shows;
 
             AddCmd = new AddCommand();
             RemoveCmd = new RemoveCommand();
         }
 
         public MovieRepository MovieRepo;
-
+        public ProgramList ProList;
         public ShowRepository ShowRepo;
         public CinemaRepository CinemaRepo;
 

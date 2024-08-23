@@ -16,6 +16,12 @@ namespace TheMovies.Persistence
         public MovieRepository()
         {
             Movies = new ObservableCollection<Movie>();
+            
+            //Added movies for testing purposes
+
+            Movies.Add(new Movie("Gladiator", "2 timer", "Eventyr"));
+            Movies.Add(new Movie("Ringenes Herre", "4 timer", "Fantasy"));
+            Movies.Add(new Movie("Inceptioin", "2 timer", "Sci-fi"));
         }
 
         public void AddMovie(Movie movie)
