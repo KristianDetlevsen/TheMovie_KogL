@@ -9,15 +9,26 @@ namespace TheMovies.Model
 {
     public class Show
     {
-        public int RoomNumber { get; set; }
-        public DateTime TimeOfSHow { get; set; }
-        public int ShowLength { get; set; }
+        //Testing two properties
+        public string CinemaName { get; set; }
+        public string MovieName { get; set; }
+        
+        public string RoomNumber { get; set; }
+        public string TimeOfShow { get; set; }
+        public string ShowLength { get; set; }
 
-        public Show(int roomNumber, DateTime time, int showLength)
+        public Show(string cinemaName, string roomNumber, string movieName, string time, string showLength)
         {
+            CinemaName = cinemaName;            
             RoomNumber = roomNumber;
-            TimeOfSHow = time;
+            MovieName = movieName;
+            TimeOfShow = time;
             ShowLength = showLength;
+        }
+
+        public override string ToString()
+        {
+            return $"{CinemaName}, {RoomNumber}, {MovieName}, {TimeOfShow}, {ShowLength}";
         }
     }    
 }
