@@ -5,70 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheMovies.View"
         mc:Ignorable="d"
-        Title="MainWindowAlternative" Height="450" Width="700">
+        Title="MainWindowAlternative" Height="450" Width="710">
     <Grid>
         <TabControl>
             <TabItem Header="Film Liste">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox Name="lbMovies" Margin="10,10,405,10" SelectedIndex="{Binding Path=lsSelectedIndex}" ItemsSource="{Binding Movies}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Title}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <Button Content="Tilføj" HorizontalAlignment="Left" Margin="307,36,0,0" VerticalAlignment="Top" Height="31" Width="66" Command="{Binding AddCmd}" CommandParameter="{Binding}"/>
-                    <Button Content="Opdatér" HorizontalAlignment="Left" Margin="400,36,0,0" VerticalAlignment="Top" Height="31" Width="66"/>
-                    <Button Content="Slet" HorizontalAlignment="Left" Margin="496,36,0,0" VerticalAlignment="Top" Height="31" Width="66" Command="{Binding RemoveCmd}" CommandParameter="{Binding}"/>
-                    <TextBox Name="tbTitle" HorizontalAlignment="Left" Margin="307,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=tbTitleText, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Name="tbDuration" HorizontalAlignment="Left" Margin="307,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=tbDurationText, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Name="tbGenre" HorizontalAlignment="Left" Margin="307,258,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Name="tbDirector" HorizontalAlignment="Left" Margin="307,312,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Name="tbPremierDate" HorizontalAlignment="Left" Margin="307,359,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Label Content="Titel" HorizontalAlignment="Left" Margin="307,114,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Varighed" HorizontalAlignment="Left" Margin="307,170,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Genre" HorizontalAlignment="Left" Margin="307,232,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Instruktør" HorizontalAlignment="Left" Margin="307,286,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Premieredato" HorizontalAlignment="Left" Margin="307,335,0,0" VerticalAlignment="Top"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Forestillings Liste">
-                <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="343*"/>
-                        <ColumnDefinition Width="347*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="2">
+                    <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="5*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                            <Button Margin="0,0,5,0" Content="Ny Forestilling"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
-                            <Button Margin="0,0,5,0" Content="Opdater Forestilling" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
-                            <Button Content="Slet Forestilling" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
+                            <Button Content="Tilføj Film" Margin="0,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110" Command="{Binding AddCmd}" CommandParameter="{Binding}"/>
+                            <Button Content="Opdatér Film" Margin="0,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
+                            <Button Content="Slet Film" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110" Command="{Binding RemoveCmd}" CommandParameter="{Binding}"/>
                         </StackPanel>
                         <StackPanel Grid.Row="1">
-                            <TextBlock Text="Biograf"/>
-                            <ComboBox ItemsSource="{Binding Cinemas}" Margin="0,5,10,10"/>
-                            <TextBlock Text="Sal"/>
-                            <ComboBox ItemsSource="{Binding MovieRooms}" Margin="0,5,10,10"/>
-                            <TextBlock Text="Film"/>
-                            <ComboBox ItemsSource="{Binding Movies}" Margin="0,5,10,10"/>
-                            <TextBlock Text="Tidspunkt"/>
+                            <Label Content="Titel"/>
+                            <TextBox Name="tbTitle" Margin="0,5,10,10" Text="{Binding Path=tbTitleText, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Content="Varighed"/>
+                            <TextBox Name="tbDuration" Margin="0,5,10,10" Text="{Binding Path=tbDurationText, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Content="Genre"/>
+                            <TextBox Name="tbGenre" Margin="0,5,10,10" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Content="Instruktør"/>
+                            <TextBox Name="tbDirector" Margin="0,5,10,10" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Content="Premieredato"/>
+                            <TextBox Name="tbPremierDate" Margin="0,5,10,10" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </Grid>
+                    <ListBox Name="lbMovies" Margin="10" SelectedIndex="{Binding Path=lsSelectedIndex}" ItemsSource="{Binding Movies}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Forestillings Liste">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Button Command="{Binding AddShowCmd}" CommandParameter="{Binding}" Margin="0,0,5,0" Content="Ny Forestilling"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
+                            <Button Margin="0,0,5,0" Content="Opdatér Forestilling" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
+                            <Button Command="{Binding RemoveShowCmd}" CommandParameter="{Binding}" Content="Slet Forestilling" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="110"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1">
+                            <Label Content="Biograf"/>
+                            <ComboBox Name="cbCinema" SelectedItem="{Binding SelectedCinema}" ItemsSource="{Binding Cinemas}" Margin="0,5,10,10"/>
+                            <Label Content="Sal"/>
+                            <ComboBox SelectedItem="{Binding SelectedRoom}" ItemsSource="{Binding Rooms}" Margin="0,5,10,10"/>
+                            <Label Content="Film"/>
+                            <ComboBox Name="cbMovie" SelectedItem="{Binding SelectedMovie}" ItemsSource="{Binding Movies}" Margin="0,5,10,10"/>
+                            <Label Content="Tidspunkt"/>
                             <TextBox Margin="0,5,10,10"/>
                         </StackPanel>
                     </Grid>
-                    <ListBox d:ItemsSource="{Binding Shows}" Grid.Column="1" Margin="6,10,10,10">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding RoomNumber}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-
-
+                    <ListBox ItemsSource="{Binding Shows}" Grid.Column="0" Margin="6,10,10,10"/>
                 </Grid>
             </TabItem>
         </TabControl>

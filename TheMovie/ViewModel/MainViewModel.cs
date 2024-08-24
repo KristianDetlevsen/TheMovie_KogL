@@ -15,6 +15,10 @@ namespace TheMovies.ViewModel
         private string _tbGenreText;
         private int _lsSelectedIndex;
 
+        public string SelectedCinema { get; set; }
+        public string SelectedMovie { get; set; }
+        public string SelectedRoom { get; set; }
+
         public string tbTitleText
         {
             get => _tbTitleText;
@@ -61,27 +65,41 @@ namespace TheMovies.ViewModel
 
         public ObservableCollection<Show> Shows { get; set; }
 
+        public ObservableCollection<Room> Rooms { get; set; }
+
         public ICommand AddCmd { get; set; }
         public ICommand RemoveCmd { get; set; }
+        public ICommand AddShowCmd { get; set; }
+        public ICommand RemoveShowCmd { get; set; }
 
         public MainViewModel()
         {
             MovieRepo = new MovieRepository();
             CinemaRepo = new CinemaRepository();
             ProList = new ProgramList();
+            ShowRepo = new ShowRepository();
+            RoomRepo = new RoomRepository();
             MovieRepo.AddMoviesFromList("Uge33-TheMovies.csv");
+            ShowRepo.AddShowsFromList("Uge33-TheMovies.csv");
             Movies = MovieRepo.Movies;
             Cinemas = CinemaRepo.Cinemas;
-            Shows = ProList.Shows;
+            //Shows = ProList.Shows;
+            Shows = ShowRepo.Shows;
+            Rooms = RoomRepo.Rooms;
+
 
             AddCmd = new AddCommand();
             RemoveCmd = new RemoveCommand();
+
+            AddShowCmd = new AddShowCommand();
+            RemoveShowCmd = new RemoveShowCommand();
         }
 
         public MovieRepository MovieRepo;
         public ProgramList ProList;
         public ShowRepository ShowRepo;
         public CinemaRepository CinemaRepo;
+        public RoomRepository RoomRepo;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

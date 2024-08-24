@@ -16,12 +16,6 @@ namespace TheMovies.Persistence
         public MovieRepository()
         {
             Movies = new ObservableCollection<Movie>();
-            
-            //Added movies for testing purposes
-
-            Movies.Add(new Movie("Gladiator", "2 timer", "Eventyr"));
-            Movies.Add(new Movie("Ringenes Herre", "4 timer", "Fantasy"));
-            Movies.Add(new Movie("Inceptioin", "2 timer", "Sci-fi"));
         }
 
         public void AddMovie(Movie movie)
@@ -41,19 +35,19 @@ namespace TheMovies.Persistence
 
         public void AddMoviesFromList(string filename)
         {
-            //Commented out for testing purposes
+            StreamReader sr = new StreamReader(filename);
+            string line = sr.ReadLine();
 
-            //StreamReader sr = new StreamReader(filename);
-            //string line = sr.ReadLine();
-            //while (line != null)
-            //{
-            //    int pack = 0;
-            //    string[] words = line.Split(';');
-            //    AddMovie(new Movie(words[3], words[5], words[4]));
+            while (line != null)
+            {
+                //int pack = 0;
+                string[] words = line.Split(';');
+                AddMovie(new Movie(words[3], words[5], words[4]));
 
-            //    line = sr.ReadLine();
-            //}
-            //sr.Close();
+                line = sr.ReadLine();
+            }
+
+            sr.Close();
         }
     }
 }

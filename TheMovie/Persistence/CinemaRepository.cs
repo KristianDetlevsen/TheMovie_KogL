@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using TheMovies.Model;
 
 namespace TheMovies.Persistence
-{
+{   
     public class CinemaRepository
     {
         public ObservableCollection<Cinema> Cinemas { get; set; }

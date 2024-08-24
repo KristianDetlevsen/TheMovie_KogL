@@ -30,7 +30,23 @@ namespace TheMovies.Persistence
 
         public void UpdateShow(Show show)
         {
+            //Needs implementation
+        }
+        public void AddShowsFromList(string filename)
+        {          
+            StreamReader sr = new StreamReader(filename);
+            
+            string line = sr.ReadLine();
 
+            while (line != null)
+            {
+                string[] words = line.Split(';');
+                AddShow(new Show(words[0], "1", words[3], words[2], words[5]));
+
+                line = sr.ReadLine();
+            }
+
+            sr.Close();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace TheMovies.Model
         public ProgramList()
         {
             Shows = new ObservableCollection<Show>();
-            Shows.Add(new Show(1, DateTime.Now, 120));
+            //Shows.Add(new Show(1, DateTime.Now, 120));
         }
 
     }
