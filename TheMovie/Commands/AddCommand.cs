@@ -27,7 +27,9 @@ namespace TheMovies.Commands
             {
                 return !string.IsNullOrEmpty(mvm.tbTitleText) &&
                        !string.IsNullOrEmpty(mvm.tbDurationText) &&
-                       !string.IsNullOrEmpty(mvm.tbGenreText);
+                       !string.IsNullOrEmpty(mvm.tbGenreText) &&
+                       !string.IsNullOrEmpty(mvm.tbDirectorText) &&
+                       !string.IsNullOrEmpty(mvm.tbPremierDateText);
             }
             return false;
         }
@@ -36,7 +38,7 @@ namespace TheMovies.Commands
         {
             if (parameter is MainViewModel mvm)
             {
-                mvm.MovieRepo.AddMovie(new Movie(mvm.tbTitleText,mvm.tbDurationText,mvm.tbGenreText));
+                mvm.MovieRepo.AddMovie(new Movie(mvm.tbTitleText,mvm.tbDurationText,mvm.tbGenreText, mvm.tbDirectorText, mvm.tbPremierDateText));
             }
         }
     }

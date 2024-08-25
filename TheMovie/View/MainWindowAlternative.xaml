@@ -32,9 +32,9 @@
                             <Label Content="Genre"/>
                             <TextBox Name="tbGenre" Margin="0,5,10,10" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Content="Instruktør"/>
-                            <TextBox Name="tbDirector" Margin="0,5,10,10" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Name="tbDirector" Margin="0,5,10,10" Text="{Binding Path=tbDirectorText, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Content="Premieredato"/>
-                            <TextBox Name="tbPremierDate" Margin="0,5,10,10" Text="{Binding Path=tbGenreText, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Name="tbPremierDate" Margin="0,5,10,10" Text="{Binding Path=tbPremierDateText, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </Grid>
                     <ListBox Name="lbMovies" Margin="10" SelectedIndex="{Binding Path=lsSelectedIndex}" ItemsSource="{Binding Movies}"/>
@@ -64,10 +64,10 @@
                             <Label Content="Film"/>
                             <ComboBox Name="cbMovie" SelectedItem="{Binding SelectedMovie}" ItemsSource="{Binding Movies}" Margin="0,5,10,10"/>
                             <Label Content="Tidspunkt"/>
-                            <TextBox Margin="0,5,10,10"/>
+                            <TextBox Name="tbTimeOfShow" Text="{Binding Path=tbTimeOfShowText, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,10,10"/>
                         </StackPanel>
                     </Grid>
-                    <ListBox ItemsSource="{Binding Shows}" Grid.Column="0" Margin="6,10,10,10"/>
+                    <ListBox SelectedItem="{Binding SelectedShow}" ItemsSource="{Binding Shows}" Grid.Column="0" Margin="6,10,10,10"/>
                 </Grid>
             </TabItem>
         </TabControl>

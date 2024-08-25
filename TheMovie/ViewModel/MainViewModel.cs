@@ -13,11 +13,7 @@ namespace TheMovies.ViewModel
         private string _tbTitleText;
         private string _tbDurationText;
         private string _tbGenreText;
-        private int _lsSelectedIndex;
-
-        public string SelectedCinema { get; set; }
-        public string SelectedMovie { get; set; }
-        public string SelectedRoom { get; set; }
+        private int _lsSelectedIndex;       
 
         public string tbTitleText
         {
@@ -59,6 +55,15 @@ namespace TheMovies.ViewModel
             }
         }
 
+        public string tbDirectorText { get; set; }
+        public string tbPremierDateText { get; set; }
+        public string SelectedCinema { get; set; }
+        public string SelectedMovie { get; set; }
+        public string SelectedRoom { get; set; }
+        public string tbTimeOfShowText { get; set; }
+        public Show SelectedShow { get; set; }
+
+        //ObservableCollections
         public ObservableCollection<Movie> Movies { get; set; }
 
         public ObservableCollection<Cinema> Cinemas { get; set; }
@@ -67,11 +72,13 @@ namespace TheMovies.ViewModel
 
         public ObservableCollection<Room> Rooms { get; set; }
 
+        //ICommands
         public ICommand AddCmd { get; set; }
         public ICommand RemoveCmd { get; set; }
         public ICommand AddShowCmd { get; set; }
         public ICommand RemoveShowCmd { get; set; }
 
+        //Constructor
         public MainViewModel()
         {
             MovieRepo = new MovieRepository();
@@ -86,11 +93,8 @@ namespace TheMovies.ViewModel
             //Shows = ProList.Shows;
             Shows = ShowRepo.Shows;
             Rooms = RoomRepo.Rooms;
-
-
             AddCmd = new AddCommand();
             RemoveCmd = new RemoveCommand();
-
             AddShowCmd = new AddShowCommand();
             RemoveShowCmd = new RemoveShowCommand();
         }

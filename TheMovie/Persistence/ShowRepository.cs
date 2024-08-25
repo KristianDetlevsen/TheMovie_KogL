@@ -23,30 +23,30 @@ namespace TheMovies.Persistence
             Shows.Add(show);
         }
 
-        public void RemoveShow(int index)
+        public void RemoveShow(Show show)
         {
-            Shows.Remove(Shows[index]);
+            Shows.Remove(show);
         }
 
         public void UpdateShow(Show show)
         {
             //Needs implementation
         }
+
         public void AddShowsFromList(string filename)
-        {          
-            StreamReader sr = new StreamReader(filename);
-            
-            string line = sr.ReadLine();
+        {
+            string line;
 
-            while (line != null)
+            using (StreamReader sr = new StreamReader(filename))
             {
-                string[] words = line.Split(';');
-                AddShow(new Show(words[0], "1", words[3], words[2], words[5]));
+                string headerLine = sr.ReadLine();
 
-                line = sr.ReadLine();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] words = line.Split(';');
+                    AddShow(new Show(words[0], "1", words[3], words[2], words[5]));
+                }
             }
-
-            sr.Close();
         }
     }
 }
