@@ -42,7 +42,7 @@ namespace TheMovies.Persistence
             {
                 //int pack = 0;
                 string[] words = line.Split(';');
-                AddMovie(new Movie(words[3], words[5], words[4]));
+                AddMovie(new Movie(words[3], words[5], words[4], words[6], words[7]));
 
                 line = sr.ReadLine();
             }
