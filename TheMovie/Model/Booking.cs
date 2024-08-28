@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace TheMovies.Model
 {
-    internal class Room
+    public class Booking
     {
-        public string Number { get; set; }
-        //public int Seats { get; set; }
+        public int ReservedSeats { get; set; }
 
-        public Room(string number)
+        public Booking(int resevedSeats)
         {
-            Number = number;
+            ReservedSeats = resevedSeats;
         }
 
         public override string ToString()
         {
-            return $"{Number}";
+            return $"{ReservedSeats}";
         }
     }
 }

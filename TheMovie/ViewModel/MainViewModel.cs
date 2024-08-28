@@ -73,6 +73,8 @@ namespace TheMovies.ViewModel
 
         public ObservableCollection<Room> Rooms { get; set; }
 
+        public ObservableCollection<Booking> Bookings { get; set; }
+
         //Testing
         public ObservableCollection<Movie> FilteredMovies { get; set; }
 
@@ -90,10 +92,12 @@ namespace TheMovies.ViewModel
             ProList = new ProgramList();
             ShowRepo = new ShowRepository();
             RoomRepo = new RoomRepository();
+            BookingRepo = new BookingRepository();
             MovieRepo.AddMoviesFromList("Uge33-TheMovies.csv");
             ShowRepo.AddShowsFromList("Uge33-TheMovies.csv");
             Movies = MovieRepo.Movies;
             Cinemas = CinemaRepo.Cinemas;
+            Bookings = BookingRepo.Bookings;
             //Shows = ProList.Shows;
             Shows = ShowRepo.Shows;
             Rooms = RoomRepo.Rooms;
@@ -113,6 +117,7 @@ namespace TheMovies.ViewModel
         public ShowRepository ShowRepo;
         public CinemaRepository CinemaRepo;
         public RoomRepository RoomRepo;
+        public BookingRepository BookingRepo;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
