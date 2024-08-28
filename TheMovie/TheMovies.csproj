@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Model\NewFile1.txt" />
+    <None Remove="Persistence\BookingRepository" />
     <None Remove="Persistence\NewFile1.txt" />
   </ItemGroup>
 
