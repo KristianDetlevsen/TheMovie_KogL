@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using TheMovies.Commands;
 using TheMovies.Model;
@@ -72,6 +73,9 @@ namespace TheMovies.ViewModel
 
         public ObservableCollection<Room> Rooms { get; set; }
 
+        //Testing
+        public ObservableCollection<Movie> FilteredMovies { get; set; }
+
         //ICommands
         public ICommand AddCmd { get; set; }
         public ICommand RemoveCmd { get; set; }
@@ -97,6 +101,11 @@ namespace TheMovies.ViewModel
             RemoveCmd = new RemoveCommand();
             AddShowCmd = new AddShowCommand();
             RemoveShowCmd = new RemoveShowCommand();
+
+            //Testing
+            FilteredMovies = new ObservableCollection<Movie>(
+                Movies.GroupBy(x => x.Title).Select(x => x.First())   
+            );
         }
 
         public MovieRepository MovieRepo;
