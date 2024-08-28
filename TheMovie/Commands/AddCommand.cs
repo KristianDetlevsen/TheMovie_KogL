@@ -38,7 +38,14 @@ namespace TheMovies.Commands
         {
             if (parameter is MainViewModel mvm)
             {
-                mvm.MovieRepo.AddMovie(new Movie(mvm.tbTitleText,mvm.tbDurationText,mvm.tbGenreText, mvm.tbDirectorText, mvm.tbPremierDateText));
+                try 
+                {
+                    mvm.MovieRepo.AddMovie(new Movie(mvm.tbTitleText,mvm.tbDurationText,mvm.tbGenreText, mvm.tbDirectorText, mvm.tbPremierDateText));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }
