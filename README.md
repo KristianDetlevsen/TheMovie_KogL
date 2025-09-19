@@ -1,4 +1,4 @@
- The Movies 🎞️
+# The Movies 🎞️
 
 > Projekt udviklet som en del af undervisningen på 2. semester.  
 > Opdateret kort i september 2025 med README.
